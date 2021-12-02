@@ -128,4 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-/dvc_{cookiecutter.plugin_name}}/_dvc_{{cookiecutter.plugin_name}}_version.py
+/dvc_{{cookiecutter.plugin_name}}/_dvc_{{cookiecutter.plugin_name}}_version.py
