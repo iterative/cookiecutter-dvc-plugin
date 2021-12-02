@@ -52,6 +52,6 @@ def make_{{ cookiecutter.plugin_name }}():
 
 
 @pytest.fixture
-def {{ cookiecutter.plugin_name }}s3(make_{{ cookiecutter.plugin_name }}):
+def {{ cookiecutter.plugin_name }}(make_{{ cookiecutter.plugin_name }}):
     return make_{{ cookiecutter.plugin_name }}()
 
