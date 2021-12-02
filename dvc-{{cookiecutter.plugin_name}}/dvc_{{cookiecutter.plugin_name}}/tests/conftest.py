@@ -8,7 +8,7 @@ from dvc.testing.fixtures import *  # noqa, pylint: disable=wildcard-import,unus
 from dvc.testing.path_info import CloudURLInfo
 from funcy import cached_property
 
-class {{ cookiecutter.plugin_name|upper }}S3(Cloud, CloudURLInfo):
+class {{ cookiecutter.plugin_name|upper }}(Cloud, CloudURLInfo):
     @property
     def config(self):
         return {"url": self.url}
