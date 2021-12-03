@@ -5,9 +5,7 @@ import pytest
 
 @pytest.fixture(scope="session")
 def docker_compose_file(pytestconfig):
-    return os.path.join(
-        str(pytestconfig.rootdir), "dvc_{{ cookiecutter.plugin_name }}", "tests", "docker-compose.yml"
-    )
+    return os.path.join(os.path.dirname(__file__), "docker-compose.yml")
 
 
 @pytest.fixture
