@@ -23,32 +23,31 @@ def workspace(make_workspace, cloud_name):
     yield make_workspace(name="workspace", typ=cloud_name)
 
 
-@pytest.fixture
-def stage_md5():
-    raise NotImplementedError
+class TestAdd{{ cookiecutter.plugin_name|upper }}(TestAdd):
+    @pytest.fixture
+    def hash_name():
+        raise NotImplementedError
 
 
-@pytest.fixture
-def is_object_storage():
-    raise NotImplementedError
+    @pytest.fixture
+    def hash_value():
+        raise NotImplementedError
 
 
-@pytest.fixture
-def dir_md5():
-    raise NotImplementedError
+    @pytest.fixture
+    def dir_hash_value():
+        raise NotImplementedError
 
 
-@pytest.fixture
-def hash_name():
-    raise NotImplementedError
+class TestImport{{ cookiecutter.plugin_name|upper }}(TestImport):
+    @pytest.fixture
+    def stage_md5():
+        raise NotImplementedError
 
+    @pytest.fixture
+    def dir_md5():
+        raise NotImplementedError
 
-@pytest.fixture
-def hash_value():
-    raise NotImplementedError
-
-
-@pytest.fixture
-def dir_hash_value(dir_md5):
-    raise NotImplementedError
-
+    @pytest.fixture
+    def is_object_storage():
+        raise NotImplementedError
