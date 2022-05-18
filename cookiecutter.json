@@ -2,6 +2,7 @@
     "plugin_name": "foobar",
     "_copy_without_render": [
         ".github/workflows/tests.yaml",
-        ".github/workflows/update-template.yaml"
+        ".github/workflows/update-template.yaml",
+        ".github/workflows/release.yaml"
     ]
 }
