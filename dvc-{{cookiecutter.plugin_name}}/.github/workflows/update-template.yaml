@@ -19,10 +19,10 @@ jobs:
         cruft update -y
         echo "::set-output name=changes::$(git diff)"
     - name: Create PR
-      if: ${{ steps.update.outputs.changes != '' }}
+      if: {% raw %}${{ steps.update.outputs.changes != '' }}{% endraw %}
       uses: peter-evans/create-pull-request@v3
       with:
         commit-message: update template
         title: update template
-        token: ${{ secrets.WORKFLOW_TOKEN }}
+        token: {% raw %}${{ secrets.WORKFLOW_TOKEN }}{% endraw %}
 
