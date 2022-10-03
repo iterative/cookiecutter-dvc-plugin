@@ -1,6 +1,7 @@
 from dvc.testing.cloud import Cloud
 from dvc.testing.path_info import CloudURLInfo
 
+
 class {{ cookiecutter.plugin_name|upper }}(Cloud, CloudURLInfo):
     @property
     def config(self):
