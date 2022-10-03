@@ -1,9 +1,9 @@
 import pytest
-from dvc.testing.test_api import TestAPI  # noqa, pylint: disable=unused-import
-from dvc.testing.test_remote import (  # noqa, pylint: disable=unused-import
+from dvc.testing.api_test import TestAPI  # noqa, pylint: disable=unused-import
+from dvc.testing.remote_test import (  # noqa, pylint: disable=unused-import
     TestRemote,
 )
-from dvc.testing.test_workspace import (  # noqa, pylint: disable=unused-import
+from dvc.testing.workspace_test import (  # noqa, pylint: disable=unused-import
     TestAdd,
     TestImport,
 )
