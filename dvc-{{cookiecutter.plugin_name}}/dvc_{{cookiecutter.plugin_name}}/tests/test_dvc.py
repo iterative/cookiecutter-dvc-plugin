@@ -21,12 +21,12 @@ def cloud(make_cloud):
 
 
 @pytest.fixture
-def remote(make_remote, cloud_name):
+def remote(make_remote):
     yield make_remote(name="upstream", typ="{{ cookiecutter.plugin_name }}")
 
 
 @pytest.fixture
-def workspace(make_workspace, cloud_name):
+def workspace(make_workspace):
     yield make_workspace(name="workspace", typ="{{ cookiecutter.plugin_name }}")
 
 
