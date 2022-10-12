@@ -48,15 +48,15 @@ class TestImport(_TestImport):
 
 class TestAdd(_TestAdd):
     @pytest.fixture
-    def hash_name():
+    def hash_name(self):
         raise NotImplementedError
 
 
     @pytest.fixture
-    def hash_value():
+    def hash_value(self):
         raise NotImplementedError
 
 
     @pytest.fixture
-    def dir_hash_value(dir_md5):
+    def dir_hash_value(self):
         raise NotImplementedError
