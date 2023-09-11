@@ -6,11 +6,13 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   pip:
     environment: pypi
+    permissions:
+      contents: read
+      id-token: write
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v3
