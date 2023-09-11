@@ -27,5 +27,3 @@ jobs:
         twine check dist/*
     - name: Publish packages to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        password: {% raw %}${{ secrets.PYPI_TOKEN }}{% endraw %}
