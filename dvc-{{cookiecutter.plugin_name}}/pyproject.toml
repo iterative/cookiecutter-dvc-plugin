@@ -5,6 +5,65 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools_scm]
 write_to = "dvc_{{cookiecutter.plugin_name}}/_dvc_{{cookiecutter.plugin_name}}_version.py"
 
+[project]
+name = "dvc-{{cookiecutter.plugin_name}}"
+description = "{{cookiecutter.plugin_name}} plugin for dvc"
+readme = "README.rst"
+keywords = [
+    "dvc",
+    "{{cookiecutter.plugin_name}}",
+]
+license = { text = "Apache License 2.0" }
+maintainers = [{ name = "Iterative", email = "support@dvc.org" }]
+authors = [{ name = "Iterative", email = "support@dvc.org" }]
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = ["version"]
+dependencies = [
+    "dvc",
+]
+
+[project.optional-dependencies]
+tests = [
+    "wheel==0.37.0",
+    "dvc[testing]",
+    # Test requirements
+    "pytest==6.2.5",
+    "pytest-cov==3.0.0",
+    "pytest-xdist==2.4.0",
+    "pytest-mock==3.6.1",
+    "pytest-lazy-fixture==0.6.3",
+    "pytest-docker>=1,<2",
+    "flaky==3.7.0",
+    "mock==4.0.3",
+    "wget==3.2",
+    "filelock==3.3.2",
+    "crc32c==2.2.post0",
+    "xmltodict==0.12.0",
+    # required by collective.checkdocs
+    "Pygments==2.10.0",
+    "collective.checkdocs==0.2",
+    "pydocstyle==6.1.1",
+    # type-checking
+    "mypy==0.981",
+    "types-requests==2.25.11",
+    "types-tabulate==0.8.3",
+    "types-toml==0.10.1",
+    # optional dependencies
+    'pywin32>=225; sys_platform == "win32"',
+]
+
+[project.urls]
+Documentation = "https://dvc.org/doc"
+Source = "https://github.com/iterative/dvc-{{cookiecutter.plugin_name}}"
+
 [tool.pytest.ini_options]
 log_level = "debug"
 addopts = "-ra"
@@ -27,3 +86,47 @@ warn_no_return = true
 warn_redundant_casts = true
 warn_unreachable = true
 files = ["dvc_{{cookiecutter.plugin_name}}"]
+
+[tool.ruff]
+output-format = "full"
+show-fixes = true
+
+[tool.ruff.lint]
+ignore = [
+    "N818", "S101", "ISC001", "PT004", "PT007", "RET502", "RET503", "SIM105", "SIM108", "SIM117",
+    "TRY003", "TRY300", "PLR2004", "PLW2901", "LOG007",
+]
+select = [
+    "F", "E", "W", "C90", "I", "N", "UP", "YTT", "ASYNC", "S", "BLE", "B", "A", "C4", "T10",
+    "EXE", "ISC", "ICN", "G", "INP", "PIE", "T20", "PYI", "PT", "Q", "RSE", "RET",
+    "SLOT", "SIM", "TID", "TCH", "ARG", "PGH", "PLC", "PLE", "PLR", "PLW", "TRY",
+    "FLY", "PERF101", "LOG", "RUF", "RUF022", "RUF023", "RUF024", "RUF025", "RUF026",
+]
+preview = true
+explicit-preview-rules = true
+
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = false
+mark-parentheses = false
+parametrize-names-type = "csv"
+raises-extend-require-match-for = ["dvc.exceptions.DvcException"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+
+[tool.ruff.lint.flake8-type-checking]
+strict = true
+
+[tool.ruff.lint.flake8-unused-arguments]
+ignore-variadic-names = true
+
+[tool.ruff.lint.isort]
+known-first-party = ["dvc", "dvc_data", "dvc_objects"]
+
+[tool.ruff.lint.pep8-naming]
+extend-ignore-names = ["M", "SCM"]
+
+[tool.ruff.lint.pylint]
+max-args = 10
+
+[tool.ruff.lint.per-file-ignores]
+"dvc-{{cookiecutter.plugin_name}}/tests/**" = ["S", "ARG001", "ARG002", "TRY002", "TRY301"]
