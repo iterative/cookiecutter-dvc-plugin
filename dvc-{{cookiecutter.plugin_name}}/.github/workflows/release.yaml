@@ -22,7 +22,7 @@ jobs:
       with:
         python-version: 3.12
     - uses: astral-sh/setup-uv@v3
-    - run: uv pip install twine 
+    - run: uv pip install twine --system
     - run: uv build
     - run: twine check dist/*
     - name: Publish packages to PyPI
